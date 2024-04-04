@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from enum import Enum
 
+import pydantic
 from extendable_pydantic import StrictExtendableBaseModel
 
 from odoo.addons.product.models.product_product import ProductProduct
@@ -23,13 +24,18 @@ class ProductAttributeType(Enum):
     float = "float"
     date = "date"
     datetime = "datetime"
+    # TODO: I'm not sure this value is handled properly
+    # as product[attr.name] will return a b64 string, not a binary.
     binary = "binary"
 
 
 class ProductAttribute(StrictExtendableBaseModel):
     name: str
     key: str
-    value: str | bool | int | list[str]
+    # Use strict types to avoid opinionated conversion of original values
+    value: pydantic.StrictInt | pydantic.StrictStr | pydantic.StrictFloat | bool | list[
+        str
+    ]
     type: ProductAttributeType
 
     @classmethod
@@ -38,7 +44,7 @@ class ProductAttribute(StrictExtendableBaseModel):
         product: ProductProduct,
         attr: AttributeAttribute,
         string_mode: bool = False,
-    ) -> str | bool | int | list[str]:
+    ) -> str | bool | int | float | list[str]:
         if attr.attribute_type == "select":
             return product[attr.name].display_name or ""
         elif attr.attribute_type == "multiselect":
@@ -47,8 +53,7 @@ class ProductAttribute(StrictExtendableBaseModel):
             return product[attr.name] and "true" or "false"
         elif string_mode or attr.attribute_type in ("char", "text"):
             return "%s" % (product[attr.name] or "")
-        else:
-            return product[attr.name] or ""
+        return product[attr.name] or ""
 
     @classmethod
     def from_product_attribute(
