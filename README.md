@@ -37,7 +37,7 @@ addon | version | maintainers | summary
 [shopinvader_filtered_model](shopinvader_filtered_model/) | 16.0.1.1.1 |  | Helper for exposing model easily
 [shopinvader_multi_category](shopinvader_multi_category/) | 16.0.1.0.1 |  | Shopinvader Many Categories
 [shopinvader_product](shopinvader_product/) | 16.0.1.0.3 |  | Adds shopinvader product fields and schemas
-[shopinvader_product_attribute_set](shopinvader_product_attribute_set/) | 16.0.1.0.1 |  | Expose all PIM' Attribute sets with Shopinvader
+[shopinvader_product_attribute_set](shopinvader_product_attribute_set/) | 16.0.1.0.2 |  | Expose all PIM' Attribute sets with Shopinvader
 [shopinvader_product_brand](shopinvader_product_brand/) | 16.0.1.0.1 |  | Shopinvader product Brand
 [shopinvader_product_brand_tag](shopinvader_product_brand_tag/) | 16.0.1.0.1 |  | Index Product Brand Tags in Shopinvader
 [shopinvader_product_description](shopinvader_product_description/) | 16.0.1.0.0 |  | Description fields for Shopinvader
