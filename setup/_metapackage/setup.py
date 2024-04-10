@@ -20,6 +20,7 @@ setuptools.setup(
         'odoo-addon-shopinvader_api_wishlist>=16.0dev,<16.1dev',
         'odoo-addon-shopinvader_base_url>=16.0dev,<16.1dev',
         'odoo-addon-shopinvader_delivery_state>=16.0dev,<16.1dev',
+        'odoo-addon-shopinvader_es_product_categ>=16.0dev,<16.1dev',
         'odoo-addon-shopinvader_fastapi_auth_jwt>=16.0dev,<16.1dev',
         'odoo-addon-shopinvader_filtered_model>=16.0dev,<16.1dev',
         'odoo-addon-shopinvader_multi_category>=16.0dev,<16.1dev',

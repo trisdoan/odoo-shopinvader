@@ -33,6 +33,7 @@ addon | version | maintainers | summary
 [shopinvader_api_wishlist](shopinvader_api_wishlist/) | 16.0.1.0.2 |  | Handle shop wishlist
 [shopinvader_base_url](shopinvader_base_url/) | 16.0.1.0.3 |  | keep history of url for products & categories
 [shopinvader_delivery_state](shopinvader_delivery_state/) | 16.0.1.0.1 |  | Shopinvader delivery state
+[shopinvader_es_product_categ](shopinvader_es_product_categ/) | 16.0.1.0.0 |  | Add the hierarchicalCategories field in the product index required for faceting
 [shopinvader_fastapi_auth_jwt](shopinvader_fastapi_auth_jwt/) | 16.0.1.0.2 |  | Provide JWT and Anonymous Partner authentication to FastAPI routes.
 [shopinvader_filtered_model](shopinvader_filtered_model/) | 16.0.1.1.1 |  | Helper for exposing model easily
 [shopinvader_multi_category](shopinvader_multi_category/) | 16.0.1.0.1 |  | Shopinvader Many Categories
