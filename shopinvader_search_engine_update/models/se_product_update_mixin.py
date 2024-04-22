@@ -11,7 +11,7 @@ class SEProductUpdateMixin(models.AbstractModel):
 
     @api.model_create_multi
     def create(self, vals_list):
-        res = super(SEProductUpdateMixin, self).create(vals_list)
+        res = super().create(vals_list)
         res.get_products().shopinvader_mark_to_update()
         return res
 
@@ -19,14 +19,14 @@ class SEProductUpdateMixin(models.AbstractModel):
         needs_update = self.needs_product_update(vals)
         if needs_update:
             products = self.get_products()
-        res = super(SEProductUpdateMixin, self).write(vals)
+        res = super().write(vals)
         if needs_update:
             (products | self.get_products()).shopinvader_mark_to_update()
         return res
 
     def unlink(self):
         products = self.get_products()
-        res = super(SEProductUpdateMixin, self).unlink()
+        res = super().unlink()
         products.shopinvader_mark_to_update()
         return res
 
@@ -35,3 +35,8 @@ class SEProductUpdateMixin(models.AbstractModel):
 
     def needs_product_update(self, vals):
         return True
+
+    def update_field_translations(self, field_name, translations):
+        res = super().update_field_translations(field_name, translations)
+        self.get_products().shopinvader_mark_to_update()
+        return res
