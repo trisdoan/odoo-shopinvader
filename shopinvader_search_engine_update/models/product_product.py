@@ -8,6 +8,11 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     def write(self, vals):
-        res = super(ProductProduct, self).write(vals)
+        res = super().write(vals)
+        self.shopinvader_mark_to_update()
+        return res
+
+    def update_field_translations(self, field_name, translations):
+        res = super().update_field_translations(field_name, translations)
         self.shopinvader_mark_to_update()
         return res

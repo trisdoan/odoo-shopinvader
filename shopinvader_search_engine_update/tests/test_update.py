@@ -22,3 +22,13 @@ class TestUpdate(TestProductBindingUpdateBase):
             "to_delete",
             "The product binding should not be updated if an archived product is updated",
         )
+
+    def test_update_product_translation(self):
+        self.product.update_field_translations("name", {"en_US": "nouveau nom"})
+        self.assertEqual(self.product_binding.state, "to_recompute")
+
+    def test_update_product_template_translation(self):
+        self.product.product_tmpl_id.update_field_translations(
+            "name", {"en_US": "nouveau nom"}
+        )
+        self.assertEqual(self.product_binding.state, "to_recompute")

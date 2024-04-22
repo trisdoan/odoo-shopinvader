@@ -8,8 +8,13 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     def write(self, vals):
-        res = super(ProductTemplate, self).write(vals)
-        self.mapped("product_variant_ids").shopinvader_mark_to_update()
+        res = super().write(vals)
+        self.shopinvader_mark_to_update()
+        return res
+
+    def update_field_translations(self, field_name, translations):
+        res = super().update_field_translations(field_name, translations)
+        self.shopinvader_mark_to_update()
         return res
 
     def shopinvader_mark_to_update(self):
